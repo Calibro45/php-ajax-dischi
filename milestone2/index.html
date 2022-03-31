@@ -24,8 +24,25 @@
 
         <main id="album">
             <div class="container">
+
+                <!-- select -->
+
+                <div class="select-menu">
+
+                    <select class="album-type" class="filtro-album"
+                    v-model="genere"
+                    @change="fetchGeneri">
+                        <option value="All" selected>All</option>
+
+                        <option v-for="genere in generi"
+                        :value="genere">{{ genere }}</option>
+                    </select>
+
+                </div>
+
                 <div class="album-grid">
 
+                    <!-- start card -->
                     <div class="album-card-wrap"
                     v-for="album in albums">
                         <figure class="album-logo">
@@ -41,6 +58,7 @@
                             <p>{{ album.year }}</p>
                         </div>
                     </div>
+                    <!-- end card -->
 
                 </div>
             </div>
