@@ -26,18 +26,19 @@
             <div class="container">
                 <div class="album-grid">
 
-                    <div class="album-card-wrap">
+                    <div class="album-card-wrap"
+                    v-for="album in albums">
                         <figure class="album-logo">
-                            <img src="" alt="">
+                            <img :src="album.poster" alt="">
                         </figure>
                         
                         <div class="album-title">
-                            <p>titolo</p>
+                            <p>{{ album.title }}</p>
                         </div>
             
                         <div class="album-info">
-                            <p>autore</p>
-                            <p>anno</p>
+                            <p>{{ album.author }}</p>
+                            <p>{{ album.year }}</p>
                         </div>
                     </div>
 
