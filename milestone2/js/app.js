@@ -13,7 +13,6 @@ const app = new Vue ({
 
             axios.get('php/server.php')
             .then(resp => {
-                //console.log(resp.data);
                 
                 this.albums = resp.data;
                 this.getGeneri(resp.data);
@@ -21,31 +20,37 @@ const app = new Vue ({
         },
         fetchGeneri: function() {
 
-
             axios.get('php/server.php')
             .then(resp => {
 
                 this.albums = [];
                 const dischi = resp.data;
 
-                if(this.genere != 'All') {
-
-                    dischi.forEach(el => {
-    
-                        const genre = el.genre;
-    
-                        if (genre === this.genere) {
-    
-                            this.albums.push(el);
-                        } 
-                    })
-                } else {
-
-                    this.albums = dischi;
-                }
+                this.genControl(dischi,this.genere);
 
             })
         },
+
+        genControl: function(dischi, genere) {
+
+            if(genere != 'All') {
+
+                dischi.forEach(el => {
+
+                    const genre = el.genre;
+
+                    if (genre === genere) {
+
+                        this.albums.push(el);
+                    }
+                })
+
+            } else {
+
+                this.albums = dischi;
+            }
+        },
+
         getGeneri: function(el) {
             el.forEach(element => {
 
@@ -58,13 +63,10 @@ const app = new Vue ({
             });
         },
     },
+
     created() {
 
         this.fetchAlbum();
     },
-
-    // mounted() {
-    //     this.fetchGeneri();
-    // }
 });
-console.log(app);
+//console.log(app);
