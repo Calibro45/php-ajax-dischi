@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
 html {
     font-size: 16px;
     color: #808080;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -49,5 +52,45 @@ header {
     height: 100vh; 
     overflow-x: hidden;
     overflow-y: scroll;
+}
+
+.album-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 4%;
+}
+
+/* card style */
+
+.album-card-wrap {
+    padding: 20px;
+    background-color: #2e3a46;
+    text-align: center;
+    width: calc(84% / 5);
+}
+
+.album-logo {
+    margin-bottom: 10px;
+}
+
+.album-logo img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+.album-title {
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.album-info {
+    font-size: 14px;
+    font-weight: 500;
 }
 
